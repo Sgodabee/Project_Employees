@@ -180,10 +180,7 @@
 			
 		
 		 
-			 String branch = request.getParameter("branch_name");
-			 
-				
-			 br.setBranch_name(branch);
+			
 		}
 	catch (Exception ex)
 	{
