@@ -81,7 +81,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-up">
-      <h1>Welcome to VSC management</h1>
+      <h1>Welcome to Employee management</h1>
       <h2> Add Employee</h2>
       
     </div>
