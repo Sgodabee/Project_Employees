@@ -95,7 +95,7 @@
   </section><!-- End Hero -->
 
   <main id="main">
-  	    <!-- ======= Cta Section ======= -->
+        <!-- ======= Cta Section ======= -->
     <section id="cta" class="cta">
       <div class="container" data-aos="fade-in">
 
@@ -105,7 +105,8 @@
     </section>
 
 
-
+   <div class="row">
+   </div>
 <div class="col">
    </div>
    <table  border="5" align="center" width="900px" height="100px">
@@ -126,43 +127,43 @@
                             <tbody>
                               <tr>
           <%
-		try{
-			Connection conn = null;
-			PreparedStatement statement = null;
-			
-			
-			conn = OpenConnection.getConnection();
-			String sql = "SELECT * FROM public.branch ";
-			
-			statement=conn.prepareStatement(sql);
-			
-			ResultSet rs = statement.executeQuery();
-			while (rs.next())
-			{
-				%>
-				<tr>
-				<td  > </td>
-				<td  > </td>
-				<td  > </td>
-				<td  > </td>
-				<td  > </td>
-				
-				</tr>
-				 <%				 
-				
-				
-			
-			
-			}
-		}		
-	catch (Exception ex)
-	{
-		
-		
-	}
-	
-	
-	%>
+    try{
+      Connection conn = null;
+      PreparedStatement statement = null;
+      
+      
+      conn = OpenConnection.getConnection();
+      String sql = "select e.emp_name,e.emp_surname, e.emp_tel_no,e.emp_location, b.branch_name , b.branch_location from public.employees e, public.branch b where e.emp_branchID=b.branch_id ";
+      
+      statement=conn.prepareStatement(sql);
+      
+      ResultSet rs = statement.executeQuery();
+      while (rs.next())
+      {
+        %>
+        <tr>
+        <td><%=rs.getString("emp_name") + " " + rs.getString("emp_surname") %></td>
+        <td  > <%= rs.getString("emp_tel_no")%></td>
+        <td  ><%= rs.getString("emp_location")%> </td>
+        <td  ><%= rs.getString("branch_name")%> </td>
+        <td  ><%= rs.getString("branch_location")%> </td>
+        
+        </tr>
+         <%        
+        
+        
+      
+      
+      }
+    }   
+  catch (Exception ex)
+  {
+    
+    
+  }
+  
+  
+  %>
                                 
              
                       
@@ -185,34 +186,34 @@
   }).addTo(map);
        
        <%try{
-   	Connection conn = null;
-		PreparedStatement statement = null;
-		
-		
-		conn = OpenConnection.getConnection();
-		String sql = "SELECT * FROM public.branch ";
-		
-		statement=conn.prepareStatement(sql);
-		
-		ResultSet rs = statement.executeQuery();
-		while(rs.next())
-		{%> 
-				var marker = L.marker([<%=rs.getString("branch_location")%>]).addTo(map);
-		
-		<%
-			
-			
-		}
-		
-			
-			
-		}
+    Connection conn = null;
+    PreparedStatement statement = null;
+    
+    
+    conn = OpenConnection.getConnection();
+    String sql = "SELECT * FROM public.branch ";
+    
+    statement=conn.prepareStatement(sql);
+    
+    ResultSet rs = statement.executeQuery();
+    while(rs.next())
+    {%> 
+        var marker = L.marker([<%=rs.getString("branch_location")%>]).addTo(map);
+    
+    <%
+      
+      
+    }
+    
+      
+      
+    }
        
-		catch (Exception er)
-		{
-			
-			
-		}       
+    catch (Exception er)
+    {
+      
+      
+    }       
        %>
        
 
