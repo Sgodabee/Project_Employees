@@ -32,7 +32,7 @@ public class EmployeeDAO {
 			
 				
 			conn = OpenConnection.getConnection();
-			statement=conn.prepareStatement("insert into employees values(?,?,?,?,?,?,?,?)");
+			statement=conn.prepareStatement("insert into employees values(?,?,?,?,?,?,?)");
 			statement.setString(1,empId);
 			statement.setString(2,emp.getName());
 			statement.setString(3,emp.getSurname());
@@ -40,7 +40,7 @@ public class EmployeeDAO {
 			statement.setInt(5,emp.getTelephone());
 			statement.setString(6,emp.getLocation());
 			statement.setString(7, emp.getMarital_stat());
-			statement.setString(8,brc.getBranch_name());
+			
 			status= statement.executeUpdate();
 			conn.close();
 			
